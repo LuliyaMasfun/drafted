@@ -35,7 +35,7 @@ const config: Config = {
         bodyColor: "#18191A",
         textPurple: "#1E0137",
         textLight: "#FFFFFF",
-        hoverColor: "#5400CF",
+        hoverColor: "#272727",
       },
     },
   },
