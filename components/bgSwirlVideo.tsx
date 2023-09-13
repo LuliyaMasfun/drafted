@@ -1,3 +1,5 @@
+import TextBanner from "./TextBanner";
+
 const bgSwirlVideo = () => {
   return (
     <video

@@ -5,9 +5,11 @@ import Head from "next/head";
 import Image from "next/image";
 import RightSide from "@/components/RightSide";
 import BgSwirlVideo from "@/components/bgSwirlVideo";
-import { RevealText } from "@/components/RevealText";
+import RevealText from "@/components/RevealText";
 import { motion } from "framer-motion";
-import TextBanner from "@/components/TitleBanner";
+import TextBanner from "@/components/TextBanner";
+import About from "@/components/About";
+import Services from "@/components/Services";
 
 function Home() {
   return (
@@ -19,10 +21,17 @@ function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="w-full h-screen font-bodyFont bg-bodyColor text-textLight overflow-x-hidden overflow-y-scroll">
-        <BgSwirlVideo></BgSwirlVideo>
+      <main className="w-full font-bodyFont bg-bodyColor text-textLight overflow-x-hidden overflow-y-scroll ">
+        <motion.div>
+          <BgSwirlVideo />
+        </motion.div>
         <Navbar />
-        <div className="w-full h-[88vh] xl:flex items-center gap-20 justify-between">
+
+        <div className="relative z-10 w-full h-screen flex flex-col justify-center items-center">
+          <TextBanner />
+        </div>
+
+        <div className="w-full xl:flex items-center gap-20 justify-between">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -32,9 +41,17 @@ function Home() {
             <LeftSide />
           </motion.div>
 
-          <div className="h-[88vh] w-full mx-auto p-4 z-10">
-            <TextBanner />
+          <div className=" w-full items-center justify-center z-10 ">
+            <About />
+            <Services />
           </div>
+
+          {/* About*/}
+          {/* Services */}
+          {/* Resources */}
+          {/* Membership */}
+          {/* Contact */}
+          {/* Footer */}
 
           <motion.div
             initial={{ opacity: 0 }}

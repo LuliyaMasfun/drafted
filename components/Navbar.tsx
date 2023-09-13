@@ -50,7 +50,7 @@ const Navbar = () => {
           transition={{ duration: 0.5 }}
         >
           <Link href="#home">
-            <Image className="w-16" src={logo} alt="logo" />
+            <Image className="w-16 mx-auto" src={logo} alt="logo" />
           </Link>
         </motion.div>
         <motion.div
