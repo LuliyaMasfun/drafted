@@ -20,10 +20,12 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Lato:wght@300&family=Oswald:wght@500&display=swap"
           rel="stylesheet"
-        ></link>
+        />
       </head>
       <body className={inter.className}>{children}</body>
     </html>

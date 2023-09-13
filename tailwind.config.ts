@@ -27,6 +27,7 @@ const config: Config = {
       fontFamily: {
         bodyFont: ["Lato", "sans - serif"],
         titleFont: ["Oswald", "sans-serif"],
+        logoFont: ["Jomhuria", "cursive"],
       },
       boxShadow: {
         navbarShadow: "0 10px 30px -10px rgba(2,12,27,0.7)",

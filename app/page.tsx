@@ -1,10 +1,15 @@
+"use client";
 import LeftSide from "@/components/LeftSide";
 import Navbar from "@/components/Navbar";
 import Head from "next/head";
 import Image from "next/image";
 import RightSide from "@/components/RightSide";
+import BgSwirlVideo from "@/components/bgSwirlVideo";
+import { RevealText } from "@/components/RevealText";
+import { motion } from "framer-motion";
+import TextBanner from "@/components/TitleBanner";
 
-export default function Home() {
+function Home() {
   return (
     <>
       <Head>
@@ -15,17 +20,33 @@ export default function Home() {
       </Head>
 
       <main className="w-full h-screen font-bodyFont bg-bodyColor text-textLight overflow-x-hidden overflow-y-scroll">
+        <BgSwirlVideo></BgSwirlVideo>
         <Navbar />
         <div className="w-full h-[88vh] xl:flex items-center gap-20 justify-between">
-          <div className="hidden xl:inline-flex w-32 h-full fixed left-0 bottom-0">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+            className="hidden xl:inline-flex w-32 h-full fixed left-0 bottom-0"
+          >
             <LeftSide />
+          </motion.div>
+
+          <div className="h-[88vh] w-full mx-auto p-4 z-10">
+            <TextBanner />
           </div>
-          <div></div>
-          <div className="hidden xl:inline-flex w-32 h-full fixed right-0 bottom-0">
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+            className="hidden xl:inline-flex w-32 h-full fixed right-0 bottom-0"
+          >
             <RightSide />
-          </div>
+          </motion.div>
         </div>
       </main>
     </>
   );
 }
+export default Home;
