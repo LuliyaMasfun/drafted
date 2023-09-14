@@ -5,11 +5,11 @@ import Head from "next/head";
 import Image from "next/image";
 import RightSide from "@/components/RightSide";
 import BgSwirlVideo from "@/components/bgSwirlVideo";
-import RevealText from "@/components/RevealText";
 import { motion } from "framer-motion";
 import TextBanner from "@/components/TextBanner";
 import About from "@/components/About";
 import Services from "@/components/Services";
+import Resources from "@/components/Resources";
 
 function Home() {
   return (

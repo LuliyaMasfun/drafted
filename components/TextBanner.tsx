@@ -1,8 +1,13 @@
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+
+/* TODO make text train stop when new section starts, 
+        scroll upp train text move back up
+        OG title should be filled only train outlined */
 
 type ScrollTrainTitleProps = {
   title: string;
+  sectionId: string;
 };
 
 const TextBanner = () => {
@@ -13,7 +18,7 @@ const TextBanner = () => {
         className="font-logoFont items-center max-w-contentContainer py-24 justify-center"
       >
         <div className="scroll-train">
-          <ScrollTrainTitle title="DRAFTED" />
+          <ScrollTrainTitle title="DRAFTED" sectionId="home" />
         </div>
       </section>
     </>
@@ -60,7 +65,7 @@ const outlinedTextStyles = {
   textStroke: "2px #FFFFFF",
 };
 
-const ScrollTrainTitle = ({ title }: ScrollTrainTitleProps) => {
+const ScrollTrainTitle = ({ title, sectionId }: ScrollTrainTitleProps) => {
   const [count, setCount] = useState(1);
 
   useEffect(() => {
@@ -98,12 +103,4 @@ const ScrollTrainTitle = ({ title }: ScrollTrainTitleProps) => {
   );
 };
 
-const RevealText = () => {
-  return (
-    <div className="relative font-logoFont items-center max-w-contentContainer justify-center ">
-      <ScrollTrainTitle title="DRAFTED" />
-    </div>
-  );
-};
-
-export default RevealText;
+export default TextBanner;
