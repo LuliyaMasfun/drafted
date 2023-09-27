@@ -1,26 +1,49 @@
 import { motion } from "framer-motion";
-import BgWaveVideo from "./bgWaveVideo";
+import BgSwirlVideo from "./bgSwirlVideo";
 import SectionTitle from "./SectionTitle";
+import SubTitle from "./SubTitle";
 
 const Services = () => {
   return (
-    <section
-      id="services"
-      className="max-w-containerSmall lgl:py-32 flex flex-col lg:flex-row"
-    >
-      <motion.div className="z-0">
-        <BgWaveVideo />
-      </motion.div>
+    <section id="services" className="flex flex-col min-h-screen">
+      {/* Big div covering the whole page */}
+      <div className="">
+        {/* Subtitles displayed in rows */}
+        <div className="max-w-containerSmall">
+          <p className="tracking-extraWide font-titleFont text-2xl font-semibold">
+            OUR SERVICES
+          </p>
+          <div className="my-8">
+            <SectionTitle title={"CREATING MOMENTS WORTH MENTIONING."} />
+          </div>
 
-      <div className="z-10 max-w-containerSmall ml-[45vh] py-10  flex flex-col gap-8">
-        <p className="tracking-extraWide w-[130vh] font-titleFont text-2xl font-semibold flex items-center">
-          OUR SERVICES
-        </p>
-        <div className="mx-auto">
-          <SectionTitle title={"CREATING MOMENTS WORTH MENTIONING"} />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+            <div className="py-4">
+              <SubTitle title={"PERFORMANCE MARKETING"} />
+            </div>
+            <div className="py-4">
+              <SubTitle title={"CONTENT PRODUCTION"} />
+            </div>
+            <div className="py-4">
+              <SubTitle title={"AUDIENCE INSIGHT"} />
+            </div>
+            <div className="py-4">
+              <SubTitle title={"CONCEPT DEVELOPMENT"} />
+            </div>
+            <div className="py-4">
+              <SubTitle title={"CULTURAL TREND ANALYSIS"} />
+            </div>
+            <div className="py-4">
+              <SubTitle title={"INFLUENCER MARKETING"} />
+            </div>
+            <div className="py-4">
+              <SubTitle title={"SOCIAL MEDIA MANAGEMENT"} />
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 };
+
 export default Services;

@@ -50,7 +50,14 @@ const Navbar = () => {
           transition={{ duration: 0.5 }}
         >
           <Link href="#home">
-            <Image className="w-16 mx-auto" src={logo} alt="logo" />
+            <motion.li
+              initial={{ y: -10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="font-logoFont text-6xl flex items-center"
+            >
+              U See Us
+            </motion.li>
           </Link>
         </motion.div>
         <motion.div

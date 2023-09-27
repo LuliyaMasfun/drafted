@@ -1,27 +1,44 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
-/* TODO make text train stop when new section starts, 
-        scroll upp train text move back up
-        OG title should be filled only train outlined */
-
 type ScrollTrainTitleProps = {
   title: string;
   sectionId: string;
 };
 
 const TextBanner = () => {
+  const [visibleTitles, setVisibleTitles] = useState<string[]>([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Determine the number of titles to display based on the scroll position
+      const scrollPosition = window.scrollY;
+      const titleCount = Math.floor(scrollPosition / 100) + 1;
+
+      // Generate an array of titles to display
+      const newTitles = Array.from(
+        { length: titleCount },
+        (_, index) => `Title ${index + 1}`
+      );
+
+      setVisibleTitles(newTitles);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <>
-      <section
-        id="home"
-        className="font-logoFont items-center max-w-contentContainer py-24 justify-center"
-      >
-        <div className="scroll-train">
-          <ScrollTrainTitle title="DRAFTED" sectionId="home" />
+    <div className="scroll-train">
+      {visibleTitles.map((title, index) => (
+        <div key={index}>
+          <ScrollTrainTitle title={title} sectionId="home" />
         </div>
-      </section>
-    </>
+      ))}
+    </div>
   );
 };
 
@@ -66,39 +83,20 @@ const outlinedTextStyles = {
 };
 
 const ScrollTrainTitle = ({ title, sectionId }: ScrollTrainTitleProps) => {
-  const [count, setCount] = useState(1);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100 * count) {
-        setCount(count + 1);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [count]);
-
   return (
     <motion.div
       className="text-9xl font-logoFont items-center max-w-contentContainer py-24 justify-center"
       variants={container}
       initial="hidden"
       animate="show"
-      style={count === 1 ? {} : outlinedTextStyles}
     >
-      {[...Array(count)].map((_, index) => (
-        <motion.h1
-          key={index}
-          variants={item}
-          className={`text-9xl ${count === 1 && index === 0 ? "" : "outlined"}`}
-        >
-          {title}
-        </motion.h1>
-      ))}
+      <motion.h1
+        variants={item}
+        className="text-9xl"
+        style={outlinedTextStyles}
+      >
+        {title}
+      </motion.h1>
     </motion.div>
   );
 };
