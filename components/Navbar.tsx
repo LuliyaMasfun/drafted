@@ -7,7 +7,7 @@ import menu from "../public/images/icons8-hamburger-menu-30.png";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-20 lg:h-[12vh] top-0 z-50 bg-transparent">
+    <div className="w-full relative z-10 h-20 lg:h-[12vh] top-0 z-50 bg-transparent">
       <div className="max-w-container h-full mx-auto py-1 font-bodyFont flex items-center justify-between">
         <motion.div
           initial={{ opacity: 0 }}
@@ -50,7 +50,14 @@ const Navbar = () => {
           transition={{ duration: 0.5 }}
         >
           <Link href="#home">
-            <Image className="w-16" src={logo} alt="logo" />
+            <motion.li
+              initial={{ y: -10, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="font-logoFont text-6xl flex items-center"
+            >
+              U See Us
+            </motion.li>
           </Link>
         </motion.div>
         <motion.div

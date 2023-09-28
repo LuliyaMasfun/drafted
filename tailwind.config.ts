@@ -25,11 +25,16 @@ const config: Config = {
         xl: "1280px",
       },
       fontFamily: {
-        bodyFont: ["Lato", "sans - serif"],
+        bodyFont: ["Lato", "sans-serif"],
         titleFont: ["Oswald", "sans-serif"],
+        logoFont: ["Jomhuria", "cursive"],
+        thinFont: ["Lato", "sans-serif"],
       },
       boxShadow: {
         navbarShadow: "0 10px 30px -10px rgba(2,12,27,0.7)",
+      },
+      letterSpacing: {
+        extraWide: "0.3rem",
       },
       colors: {
         bodyColor: "#18191A",
